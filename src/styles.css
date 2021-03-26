@@ -1,0 +1,30 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.weather-layout {
+  display: grid;
+  grid-template-rows: 20px 80px 20px;
+}
+
+.weather-body {
+  border: 1px solid rgb(223, 218, 218);
+  width: 100px;
+  padding: 5px 0;
+  height: 100px;
+}
+
+.weather-body:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.weather-image {
+  width: 70px;
+}
+
+.fiveday-weather-layout {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px;
+}

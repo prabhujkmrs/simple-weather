@@ -1,2 +1,3 @@
 # simple-weather
-Created with CodeSandbox
+
+This is a simple weather widget

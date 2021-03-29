@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import "./styles.css";
 import Loading from "./assets/loading.png";
 import Weather from "./Weather";
+import AutoComplete from "./AutoComplete";
 
 const API_KEY = "27fc8241ef345516d30e6ea99ca6c01f";
 
@@ -23,7 +24,6 @@ export default function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const date = new Date();
         setWeather({
           day: date.getDay(),
@@ -47,54 +47,17 @@ export default function App() {
     return Math.floor(temp - 273.15);
   };
 
-  const getDay = () => {
-    switch (weather.day) {
-      case 0:
-        return "Sun";
-      case 1:
-        return "Mon";
-      case 2:
-        return "Tue";
-      case 3:
-        return "Wed";
-      case 4:
-        return "Thu";
-      case 5:
-        return "Fri";
-      case 6:
-        return "Sat";
-      default:
-    }
-  };
-
   return (
     <div className="App">
-      <div>
-        <input
-          type="text"
-          onChange={(e) => setWeather({ city: e.target.value })}
-          ref={(input) => input && input.focus()}
-        />
-        &nbsp;
-        <button
-          onClick={() => {
-            fetchWeather(weather.city);
-          }}
-        >
-          Show Weather
-        </button>
-      </div>
-      <div>
-        <Weather
-          //day={getDay()}
-          city={weather.city}
-          description={weather.description}
-          icon={weather.icon ? getIcon(weather.icon) : Loading}
-          current_temp={weather.current_temp}
-          temp_min={weather.temp_min}
-          temp_max={weather.temp_max}
-        />
-      </div>
+      <AutoComplete fetchWeather={fetchWeather} />
+      <Weather
+        city={weather.city}
+        description={weather.description}
+        icon={weather.icon ? getIcon(weather.icon) : Loading}
+        current_temp={weather.current_temp}
+        temp_min={weather.temp_min}
+        temp_max={weather.temp_max}
+      />
     </div>
   );
 }

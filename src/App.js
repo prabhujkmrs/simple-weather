@@ -50,14 +50,16 @@ export default function App() {
   return (
     <div className="App">
       <AutoComplete fetchWeather={fetchWeather} />
-      <Weather
-        city={weather.city}
-        description={weather.description}
-        icon={weather.icon ? getIcon(weather.icon) : Loading}
-        current_temp={weather.current_temp}
-        temp_min={weather.temp_min}
-        temp_max={weather.temp_max}
-      />
+      {weather.city && (
+        <Weather
+          city={weather.city}
+          description={weather.description}
+          icon={weather.icon ? getIcon(weather.icon) : Loading}
+          current_temp={weather.current_temp}
+          temp_min={weather.temp_min}
+          temp_max={weather.temp_max}
+        />
+      )}
     </div>
   );
 }

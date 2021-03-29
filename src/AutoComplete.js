@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-const data = ["madrid", "london", "madras", "berlin"];
+import cities from "./data/cities";
 
 export default function AutoComplete(props) {
   const { fetchWeather } = props;
@@ -13,7 +12,7 @@ export default function AutoComplete(props) {
     let suggestionList = [];
     if (value.length > 0) {
       const regEx = new RegExp(`^${value}`, "i");
-      suggestionList = data.sort().filter((v) => regEx.test(v));
+      suggestionList = cities.sort().filter((v) => regEx.test(v));
     }
     setCity(value);
     setSuggestion(suggestionList);
@@ -29,9 +28,7 @@ export default function AutoComplete(props) {
     return (
       <ul>
         {suggestion.map((item) => (
-          <li key={item} onClick={() => selectedSuggestion(item)}>
-            {item}
-          </li>
+          <li onClick={() => selectedSuggestion(item)}>{item}</li>
         ))}
       </ul>
     );
@@ -43,7 +40,7 @@ export default function AutoComplete(props) {
         type="text"
         onChange={onTextChange}
         value={city}
-        ref={(input) => input && input.focus()}
+        //ref={(input) => input && input.focus()}
       />
       &nbsp;
       <button

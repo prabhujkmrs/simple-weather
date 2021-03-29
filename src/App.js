@@ -4,7 +4,7 @@ import Loading from "./assets/loading.png";
 import Weather from "./Weather";
 import AutoComplete from "./AutoComplete";
 
-const API_KEY = "27fc8241ef345516d30e6ea99ca6c01f";
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 export default function App() {
   const initialData = {

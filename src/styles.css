@@ -1,18 +1,59 @@
 .App {
+  display: grid;
+  grid-template-rows: 50px 300px;
+
   font-family: sans-serif;
-  text-align: center;
+  justify-content: center;
+}
+
+input {
+  height: 26px;
+  border: 1px solid rgb(199, 196, 196);
+  border-radius: 5px;
+  outline: none !important;
+}
+
+button {
+  border-radius: 15px;
+  color: white;
+  background-color: rgb(32, 173, 32);
+  outline: none !important;
+  border: 1px solid grey;
+  height: 30px;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 .weather-layout {
   display: grid;
-  grid-template-rows: 20px 80px 20px;
+  grid-template-rows: 20px 20px 40px 80px 20px;
 }
 
 .weather-body {
-  border: 1px solid rgb(223, 218, 218);
   width: 200px;
   padding: 5px 0;
-  height: 250px;
+  height: 300px;
+  text-align: center;
+}
+
+.day-row {
+  font-weight: 700;
+  padding: 5px;
+}
+
+.description-row {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-style: italic;
+  padding: 5px;
+}
+
+.temperature-row {
+  font-weight: 700;
+  font-size: 50px;
+  padding: 5px;
 }
 
 .weather-body:hover {
@@ -21,7 +62,7 @@
 }
 
 .weather-image {
-  width: 200px;
+  width: 150px;
 }
 
 .fiveday-weather-layout {

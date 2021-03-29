@@ -1,5 +1,6 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import "./styles.css";
+import Loading from "./assets/loading.png";
 import Weather from "./Weather";
 
 const API_KEY = "27fc8241ef345516d30e6ea99ca6c01f";
@@ -8,6 +9,9 @@ export default function App() {
   const initialData = {
     city: undefined,
     day: undefined,
+    description: undefined,
+    icon: undefined,
+    current_temp: undefined,
     temp_max: undefined,
     temp_min: undefined
   };
@@ -24,6 +28,8 @@ export default function App() {
         setWeather({
           day: date.getDay(),
           icon: data.weather[0].icon,
+          description: data.weather[0].description,
+          current_temp: formatToCelsius(data.main.temp),
           temp_max: formatToCelsius(data.main.temp_max),
           temp_min: formatToCelsius(data.main.temp_min)
         });
@@ -63,26 +69,30 @@ export default function App() {
   return (
     <div className="App">
       <div>
-        <label> City: </label>
         <input
           type="text"
           onChange={(e) => setWeather({ city: e.target.value })}
-          ref={(input) => input && input.focus()}
+          // ref={(input) => input && input.focus()}
         />
+        &nbsp;
         <button
           onClick={() => {
             fetchWeather(weather.city);
           }}
         >
-          Get Weather
+          Show Weather
         </button>
       </div>
-      <Weather
-        day={getDay()}
-        icon={getIcon(weather.icon)}
-        temp_min={weather.temp_min}
-        temp_max={weather.temp_max}
-      />
+      <div>
+        <Weather
+          day={getDay()}
+          description={weather.description}
+          icon={weather.icon ? getIcon(weather.icon) : Loading}
+          current_temp={weather.current_temp}
+          temp_min={weather.temp_min}
+          temp_max={weather.temp_max}
+        />
+      </div>
     </div>
   );
 }

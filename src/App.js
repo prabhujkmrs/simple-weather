@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState } from "react";
 import "./styles.css";
 import Loading from "./assets/loading.png";
 import Weather from "./Weather";
@@ -28,6 +28,7 @@ export default function App() {
         setWeather({
           day: date.getDay(),
           icon: data.weather[0].icon,
+          city: city,
           description: data.weather[0].description,
           current_temp: formatToCelsius(data.main.temp),
           temp_max: formatToCelsius(data.main.temp_max),
@@ -72,7 +73,7 @@ export default function App() {
         <input
           type="text"
           onChange={(e) => setWeather({ city: e.target.value })}
-          // ref={(input) => input && input.focus()}
+          ref={(input) => input && input.focus()}
         />
         &nbsp;
         <button
@@ -85,7 +86,8 @@ export default function App() {
       </div>
       <div>
         <Weather
-          day={getDay()}
+          //day={getDay()}
+          city={weather.city}
           description={weather.description}
           icon={weather.icon ? getIcon(weather.icon) : Loading}
           current_temp={weather.current_temp}

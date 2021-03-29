@@ -13,8 +13,13 @@ input {
   outline: none !important;
 }
 
+span {
+  color: grey;
+}
+
 button {
   border-radius: 15px;
+  font-weight: 700;
   color: white;
   background-color: rgb(32, 173, 32);
   outline: none !important;
@@ -28,7 +33,7 @@ button:hover {
 
 .weather-layout {
   display: grid;
-  grid-template-rows: 20px 20px 40px 80px 20px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .weather-body {
@@ -38,8 +43,9 @@ button:hover {
   text-align: center;
 }
 
-.day-row {
+.city-row {
   font-weight: 700;
+  text-transform: capitalize;
   padding: 5px;
 }
 
@@ -62,7 +68,7 @@ button:hover {
 }
 
 .weather-image {
-  width: 150px;
+  width: 100px;
 }
 
 .fiveday-weather-layout {

@@ -1,21 +1,20 @@
 import React from "react";
-import DefaultImage from "./assets/sunny.png";
 
 export default function Weather(props) {
-  const { day, image, imageAlt, temperature } = props;
-  const defaultAlt = "sunny";
+  const { day, temp_min, temp_max, icon } = props;
+
   return (
     <div className="weather-layout">
       <div className="weather-body">
         <div>{day}</div>
         <div>
-          <img
-            src={image ? image : DefaultImage}
-            alt={imageAlt ? imageAlt : defaultAlt}
-            className="weather-image"
-          />
+          <img src={icon} alt="weather-icon" className="weather-image" />
         </div>
-        <div>{temperature}</div>
+        <div>
+          <span>{temp_max}°c</span>
+          &nbsp; &nbsp;
+          <span>{temp_min}°c</span>
+        </div>
       </div>
     </div>
   );

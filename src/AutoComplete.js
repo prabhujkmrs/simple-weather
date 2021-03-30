@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import cities from "./data/cities";
+import "./css/AutoComplete.css";
 
 export default function AutoComplete(props) {
   const { fetchWeather } = props;
@@ -35,22 +36,25 @@ export default function AutoComplete(props) {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        onChange={onTextChange}
-        value={city}
-        //ref={(input) => input && input.focus()}
-      />
-      &nbsp;
-      <button
-        onClick={() => {
-          fetchWeather(city);
-        }}
-      >
-        Show Weather
-      </button>
-      {renderSuggestions()}
+    <div className="autocomplete-container">
+      <div>
+        <input
+          type="text"
+          onChange={onTextChange}
+          value={city}
+          //ref={(input) => input && input.focus()}
+        />
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            fetchWeather(city);
+          }}
+        >
+          Show Weather
+        </button>
+      </div>
+      <div>{renderSuggestions()}</div>
     </div>
   );
 }

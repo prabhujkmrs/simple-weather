@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import "./styles.css";
+import "./css/App.css";
 import Loading from "./assets/loading.png";
 import Weather from "./Weather";
 import AutoComplete from "./AutoComplete";
@@ -48,18 +48,16 @@ export default function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app-container">
       <AutoComplete fetchWeather={fetchWeather} />
-      {weather.city && (
-        <Weather
-          city={weather.city}
-          description={weather.description}
-          icon={weather.icon ? getIcon(weather.icon) : Loading}
-          current_temp={weather.current_temp}
-          temp_min={weather.temp_min}
-          temp_max={weather.temp_max}
-        />
-      )}
+      <Weather
+        city={weather.city}
+        description={weather.description}
+        icon={weather.icon ? getIcon(weather.icon) : Loading}
+        current_temp={weather.current_temp}
+        temp_min={weather.temp_min}
+        temp_max={weather.temp_max}
+      />
     </div>
   );
 }

@@ -1,0 +1,7 @@
+.app-container {
+  display: grid;
+  grid-template-rows: 50px 300px;
+  grid-template-columns: 400px;
+  font-family: sans-serif;
+  justify-content: center;
+}

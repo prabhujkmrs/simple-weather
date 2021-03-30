@@ -1,0 +1,40 @@
+.weather-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+.weather-child-1 {
+  width: 200px;
+  padding: 5px 0;
+  height: 300px;
+  text-align: center;
+}
+
+.weather-city-row {
+  font-weight: 700;
+  text-transform: capitalize;
+  padding: 5px;
+}
+
+.weather-description-row {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-style: italic;
+  padding: 5px;
+}
+
+.weather-temperature-row {
+  font-weight: 700;
+  font-size: 50px;
+  padding: 5px;
+}
+
+.weather-child-1:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.weather-image {
+  width: 100px;
+}

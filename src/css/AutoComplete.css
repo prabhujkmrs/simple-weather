@@ -1,0 +1,55 @@
+.autocomplete-container {
+  display: grid;
+  grid-template-columns: 400px 200px;
+}
+
+input {
+  height: 25px;
+  width: 100%;
+  border: 1px solid rgb(199, 196, 196);
+  border-radius: 5px;
+  outline: none !important;
+}
+
+span {
+  color: grey;
+}
+
+button {
+  border-radius: 5px;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(32, 173, 32);
+  outline: none !important;
+  border: 1px solid rgb(209, 203, 203);
+  height: 29px;
+  margin-left: 20px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 2px 0;
+  opacity: 1;
+  position: relative;
+  background-color: white;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+li {
+  border: 1px solid rgb(199, 196, 196);
+  padding: 5px;
+  width: 98.5%;
+  margin: 2px 0;
+  border-radius: 5px;
+}
+
+li:hover {
+  background-color: rgb(190, 183, 183);
+}
